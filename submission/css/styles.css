@@ -253,6 +253,135 @@ main {
   z-index: 2;
 }
 
+#wishlist {
+  animation: slide-up 0.5s 0.45s ease both;
+}
+
+#title-wishlist {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--sky);
+  text-shadow: 2px 3px 0 var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.wishlist-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #eafaff;
+  border: 3px solid var(--dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.wishlist-form label {
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.wishlist-form input {
+  flex: 1 1 12rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--dark);
+  background-color: var(--white);
+  border: 2.5px solid var(--dark);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wishlist-form input:focus {
+  outline: none;
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.22);
+  transform: translateY(-1px);
+}
+
+.wishlist-form button {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  background-color: var(--sky);
+  border: 3px solid var(--dark);
+  border-radius: 999px;
+  box-shadow: 3px 4px 0 var(--dark);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.wishlist-form button:hover {
+  background-color: var(--teal);
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 3px 8px 0 var(--dark);
+}
+
+.wishlist-form button:active {
+  transform: translateY(-1px);
+  box-shadow: 2px 4px 0 var(--dark);
+}
+
+.wishlist-empty {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--dark);
+  opacity: 0.55;
+  margin-bottom: 1.25rem;
+}
+
+#list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--white);
+  border: 2.5px solid var(--dark);
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 4px 0 var(--dark);
+  padding: 0.75rem 1.125rem;
+  font-weight: 700;
+  color: var(--dark);
+  animation: pop-in 0.3s cubic-bezier(.36, 1.56, .64, 1) both;
+}
+
+.removeBtn {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--white);
+  background-color: var(--pink);
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.removeBtn:hover {
+  background-color: var(--orange);
+  transform: scale(1.12) rotate(90deg);
+}
+
+.removeBtn:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
 #leave-feedback {
   animation: slide-up 0.5s 0.45s ease both;
 }

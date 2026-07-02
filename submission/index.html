@@ -38,7 +38,7 @@
 
         <section id="services" name="services">
             <h3 id="title-services" name="title-services">Our Services</h3>
-            <ul id = "services-list" name = "services-list"></ul>
+            <ul id="services-list" name="services-list"></ul>
         </section>
         <section id="images" name="images" width="100%" height="100%">
             <h3 id="title-image" name="title-image">Gallery</h3>
@@ -49,16 +49,26 @@
                 <img src="images/image4.jpg" alt="Event image" width="50%">
             </div>
         </section>
-        <section id = "leave-feedback" name = "leave-feedback">
-            <h3 id = "title-feedback" name = "title-feedback">Leave Your Feedback!</h3>
-            <form id = "feedback-form" name = "feedback-form" action = "submit-feedback.php" method = "post">
-                <label for = "name">Name:</label>
-                <input type = "text" id = "name" name = "name" required>
-                <label for = "email">Email:</label>
-                <input type = "email" id = "email" name = "email" required>
-                <label for = "message">Message:</label>
-                <textarea id = "message" name = "message" required></textarea>
-                <button type = "submit">Submit</button>
+        <section id="wishlist" name="wishlist">
+            <h3 id="wishlist-title" name="wishlist-title">Build Your Event Wishlist!</h3>
+            <div class="wishlist-form" name="wishlist-form">
+                <label for="wishlist-input">Add item:</label>
+                <input type="text" id="wishlist-input" name="wishlist-input">
+                <button type="button" id="wishlistBtn" name="wishlistBtn">Add</button>
+            </div>
+            <h3 id="wishlist-display" name="wishlist-display">Your Wishlist:</h3>
+            <ul id="list" name="list"></ul>
+        </section>
+        <section id="leave-feedback" name="leave-feedback">
+            <h3 id="title-feedback" name="title-feedback">Leave Your Feedback!</h3>
+            <form id="feedback-form" name="feedback-form" action="submit-feedback.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
             </form>
         </section>
         <section id="contact" name="contact">
@@ -73,7 +83,7 @@
             </footer>
         </section>
     </main>
-    <script src ="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
