@@ -33,6 +33,8 @@ services.forEach(service => {
     servicesList.appendChild(item);
 });
 
+
+
 const wishlistInput = document.getElementById("wishlist-input");
 const wishlistAddButton = document.getElementById("wishlistBtn");
 const wishlistList = document.getElementById("list");
@@ -132,3 +134,9 @@ form.addEventListener("submit", (event) => {
     feedbackForm.reset();
 });
 
+const bannerImage = document.querySelector("#banner-image");
+const bannerCaption = document.querySelector("#banner-caption");
+ 
+bannerImage.addEventListener("click", function () {
+    bannerCaption.classList.toggle("is-visible");
+});
