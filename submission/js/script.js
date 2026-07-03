@@ -33,76 +33,64 @@ services.forEach(service => {
     servicesList.appendChild(item);
 });
 
-
-let input = document.querySelector("#wishlist-input");
-let addButton = document.querySelector("#wishlistBtn");
-let list = document.querySelector("#list");
-let emptyMessage = document.querySelector("#wishlist-display");
-
-addButton.addEventListener("click", () => {
-    const value = input.value;
+const wishlistInput = document.getElementById("wishlist-input");
+const wishlistAddButton = document.getElementById("wishlistBtn");
+const wishlistList = document.getElementById("list");
+const wishlistStorageKey = "geojoyWishlist";
+ 
+wishlistAddButton.addEventListener("click", function () {
+    const value = wishlistInput.value.trim();
     if (value === "") {
-        input.focus();
+        wishlistInput.focus();
         return;
     }
+ 
     const item = document.createElement("li");
+ 
     const text = document.createElement("span");
     text.textContent = value;
-
+ 
     const removeButton = document.createElement("button");
     removeButton.type = "button";
-    removeButton.classList.add("removeBtn");
-    removeButton.textContent = "X";
+    removeButton.classList.add("wishlist-remove-btn");
+    removeButton.textContent = "×";
     removeButton.setAttribute("aria-label", `Remove ${value} from wishlist`);
-
-    removeButton.addEventListener("click", () => {
+ 
+    removeButton.addEventListener("click", function () {
         item.remove();
-        emptyMessage.computedStyleMap.display = list.children.length === 0 ? "block" : "none";
+ 
+        const remainingItems = Array.from(wishlistList.querySelectorAll("li span"))
+            .map(function (span) { return span.textContent; });
+        localStorage.setItem(wishlistStorageKey, JSON.stringify(remainingItems));
     });
+ 
     item.appendChild(text);
     item.appendChild(removeButton);
-    list.appendChild(item);
+    wishlistList.appendChild(item);
+ 
+    wishlistInput.value = "";
+    wishlistInput.focus();
 
-    input.value = "";
-    input.focus();
-    emptyMessage.computedStyleMap.display = list.children.length === 0 ? "block" : "none";
+    const currentItems = Array.from(wishlistList.querySelectorAll("li span"))
+        .map(function (span) { return span.textContent; });
+    localStorage.setItem(wishlistStorageKey, JSON.stringify(currentItems));
 });
+ 
 
-input.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") return; 
-        event.preventDefault();
-        const value = wishlistInput.value.trim();
-        if (value === "") {
-            wishlistInput.focus();
-            return;
-        }
+wishlistInput.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    wishlistAddButton.click();
+});
+ 
 
-        const item = document.createElement("li");
-
-        const text = document.createElement("span");
-        text.textContent = value;
-
-        const removeButton = document.createElement("button");
-        removeButton.type = "button";
-        removeButton.classList.add("wishlist-remove-btn");
-        removeButton.textContent = "×";
-        removeButton.setAttribute("aria-label", `Remove ${value} from wishlist`);
-
-        removeButton.addEventListener("click", function () {
-            item.remove();
-            wishlistEmptyMessage.style.display = wishlistList.children.length === 0 ? "block" : "none";
-        });
-
-        item.appendChild(text);
-        item.appendChild(removeButton);
-        wishlistList.appendChild(item);
-
-        wishlistInput.value = "";
-        wishlistInput.focus();
-        wishlistEmptyMessage.style.display = wishlistList.children.length === 0 ? "block" : "none";
-    });
-
-wishlistEmptyMessage.style.display = wishlistList.children.length === 0 ? "block" : "none";
+const savedWishlistItems = JSON.parse(localStorage.getItem(wishlistStorageKey) || "[]");
+savedWishlistItems.forEach(function (savedValue) {
+    wishlistInput.value = savedValue;
+    wishlistAddButton.click();
+});
+wishlistInput.value = "";
+wishlistInput.blur();
 
 
 let form = document.querySelector("#feedback-form");

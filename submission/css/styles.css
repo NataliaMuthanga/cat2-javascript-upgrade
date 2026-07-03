@@ -345,6 +345,12 @@ main {
   margin-bottom: 1.25rem;
 }
 
+#wishlist-display {
+  font-weight: 700;
+  color: var(--dark);
+  opacity: 0.85;
+}
+
 #list {
   list-style: none;
   display: flex;
