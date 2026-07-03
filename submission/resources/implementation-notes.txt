@@ -1,0 +1,15 @@
+Wishlist persistence (localStorage) — the wishlist saves and restores items using a storage key so items survive page reloads. 
+I preserved your original structure and kept all logic inline (no extra helper functions). 
+
+Click-to-reveal banner caption — clicking the banner toggles a CSS class on the caption (`classList.toggle`) to reveal or hide the overlay; 
+the caption’s `aria-hidden` is updated for accessibility. 
+
+Robust add/remove flow— adding an item appends an `<li>` with a remove button, and both add and remove update 
+`localStorage` immediately so the UI and storage stay in sync.  
+
+Minimal, non-invasive fixes — I corrected inconsistent variable names from the earlier script (kept your style and avoided 
+`DOMContentLoaded`, `console.log`, and `try/catch` as requested).
+
+Styling and accessibility — CSS rules control the caption’s hidden/visible states 
+(`.banner-caption` / `.banner-caption.is-visible`) and the JS toggles `aria-hidden` for screen readers.
+
