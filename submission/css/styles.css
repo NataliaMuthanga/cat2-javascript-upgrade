@@ -96,6 +96,16 @@ nav ul li:nth-child(4) a:hover {
   color: var(--white);
 }
 
+nav ul li:nth-child(5) a:hover {
+  background-color: var(--sky);
+  color: var(--white);
+}
+
+nav ul li:nth-child(6) a:hover {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
 #title {
   font-family: var(--font-display);
 
@@ -461,6 +471,38 @@ main {
 #feedback-form button:active {
   transform: translateY(-1px);
   box-shadow: 2px 4px 0 var(--dark);
+}
+
+.feedback-message {
+  display: none;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--radius-sm);
+  border: 2.5px solid var(--dark);
+}
+
+.feedback-message.is-success {
+  display: block;
+  background-color: #e5fbfb;
+  color: var(--dark);
+  border-color: var(--teal);
+}
+
+.feedback-message.is-error {
+  display: block;
+  background-color: #ffeef6;
+  color: var(--dark);
+  border-color: var(--pink);
+}
+
+.feedback-message ul{
+  margin: 0.5rem 0 0 1.15rem;
+  padding: 0;
+}
+
+.feedback-message li {
+  margin-bottom: 0.25rem;
 }
 
 #contact {

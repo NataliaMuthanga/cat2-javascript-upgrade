@@ -19,6 +19,8 @@
             <li><a href="#intro">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#images">Gallery</a></li>
+            <li><a href="#wishlist">Wishlist</a></li>
+            <li><a href="#leave-feedback">Feedback</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
 
@@ -61,7 +63,7 @@
         </section>
         <section id="leave-feedback" name="leave-feedback">
             <h3 id="title-feedback" name="title-feedback">Leave Your Feedback!</h3>
-            <form id="feedback-form" name="feedback-form" action="submit-feedback.php" method="post">
+            <form id="feedback-form" name="feedback-form" novalidate>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -69,6 +71,7 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Submit</button>
+                <p id="feedback-status" class="feedback-message"></p>
             </form>
         </section>
         <section id="contact" name="contact">
